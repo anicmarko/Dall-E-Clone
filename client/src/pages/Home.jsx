@@ -12,7 +12,7 @@ const RenderCards = ({ data, title }) => {
 }
 
 const Home = () => {
-  const [loading, setLoading] = useState(false);
+  const [isLoading, setLoading] = useState(false);
   const [allPosts, setAllPosts] = useState(null);
   const [searchText, setSearchText] = useState("");
   
@@ -31,15 +31,15 @@ const Home = () => {
         <FormField />
       </div>
       <div className="mt-10">
-        {loading ? (
+        {isLoading ? (
           <div className="flex justify-center items-center">
             <Loader />
           </div>
         ) : (
           <>
             {searchText && (
-              <h2 className="font-meidum text-[#666e75] text-xl mb-3">
-                Showing results for{" "}
+              <h2 className="font-medium text-[#666e75] text-xl mb-3">
+                Showing results for {" "}
                 <span className="text-[#222328]">{searchText}</span>
               </h2>
             )}
