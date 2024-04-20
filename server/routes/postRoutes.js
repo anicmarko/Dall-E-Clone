@@ -15,8 +15,7 @@ cloudinary.config({
 
 router.get('/', async (req,res) => {
     try {
-        //const posts = await Post.find({});
-        const posts = [{name: 'ime', prompt: 'prompt bato', photo : 'https://cdn.openai.com/labs/images/A%20cartoon%20of%20a%20monkey%20in%20space.webp?v=1'}];
+        const posts = await Post.find({});
         res.status(200).json({success: true, data: posts});
 
     } catch (error) {
