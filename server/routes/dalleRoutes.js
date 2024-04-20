@@ -7,6 +7,8 @@ const router = express.Router();
 
 const openai = new OpenAI(process.env.OPENAI_API_KEY);
 
+
+
 router.post('/', async (req,res) =>{
 
     try {
@@ -18,13 +20,14 @@ router.post('/', async (req,res) =>{
             size: '1024x1024',
             response_format: 'b64_json'
         });
-
+        
         const image = aiResponse.data.data[0].b64_json;
 
         res.status(200).json({photo: image});
     } catch (error) {
         console.log(error);
-        res.status(500).send(error?.response.data.error.message)
+        res.status(500).send(error?.response?.data?.error?.message || "Internal server error");
+
     }
 
 });
