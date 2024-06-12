@@ -3,7 +3,9 @@ import { Loader, FormField, Card } from "../components";
 
 const RenderCards = ({ data, title }) => {
   if (data?.length > 0) {
-    return data.map((post) => <Card key={post._id} {...post} />);
+    return (
+      data.map((post) => <Card key={post._id} {...post} />)
+    );
   }
 
   return (
@@ -55,7 +57,7 @@ const Home = () => {
       setTimeout(() => {
         const searchResult = allPosts.filter((item) => item.name.toLowerCase().includes(searchText.toLowerCase()) || item.prompt.toLowerCase().includes(searchText.toLowerCase()));
         setSearchedResults(searchResult);
-      }, 500),
+      }, 300),
     );
   };
 
